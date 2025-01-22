@@ -27,6 +27,9 @@ z2=seq(1,100,by=2);
 X=matrix(1:12, 3, 4)
 Y=matrix(1:12, 3, 4, byrow=T)
 
+m = matrix(1:12, nrow = 3, ncol = 4)
+m
+
 
 # array: when your dataset has >2 dimensions
 arr=array(0,c(2,3,4))
@@ -37,6 +40,8 @@ LL=list(model='SIR',
         Susceptible=seq(1e5,.9e5,by=-500),
         Infected=seq(1,1000,by=500))
 
+df = data.frame(time = 1:10, infection = seq(0, length.out = 10, by = 1))
+              
 ## Operations
 x*5
 10+x*5
@@ -45,13 +50,20 @@ x*z # not xz
 
 ## Inputs and outputs
 # da=read.csv('~/Documents/Teaching/IDmodeling2019/Lab_w1_R101/Lab1data.csv')
-da=read.csv(file.choose())
+da=read.csv(file.choose(~data/Lab1data.csv))
 
 
 head(da) # by default: the first 6 rows
 head(da,2); # the first 2 rows
 tail(da); # by default: the last 6 rows
 tail(da,1); # the last row
+
+
+# customized functions
+add = function(a,b) {
+  result = a + b
+  return(result)
+}
 
 ##########################################
 ## PLOT
